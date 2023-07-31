@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Dropdown from '../../components/dropdown'
 import Menu from '../../components/menu'
 import { CiGrid42 } from "react-icons/ci"
 import { BsListTask } from "react-icons/bs"
+import DarkLightToggle from '../../components/dark-light/index'
+import { LayoutContext } from '../../contexts/LayoutContext'
 
 const SideBar = () => {
+    const { theme } = useContext(LayoutContext);
+
     const dropdownItems = [
         {
             key: "1",
@@ -40,31 +44,37 @@ const SideBar = () => {
     ]
 
     return (
-        <aside className='p-4 bg-white border-r border-gray-300 h-screen w-[250px]'>
-            <p className='text-[1.7rem] font-[600] m-0 leading-[2.2rem]'>
-                <span className='text-orange-400'>Task</span>
-                manager
-            </p>
-            <span className='text-[12px]'>
-                Focus, Working and Learning
-            </span>
+        <aside className={`${theme === "light" ? "bg-white" : "bg-gray-800"} p-4 border-r border-gray-300 h-screen w-[250px] flex items-center flex-col justify-between`}>
+            <div className="w-full">
+                <p className='text-[1.7rem] font-[600] m-0 leading-[2.2rem]'>
+                    <span className='text-orange-400'>Task</span>
+                    manager
+                </p>
+                <span className='text-[12px]'>
+                    Focus, Working and Learning
+                </span>
 
-            <hr className='my-5' />
+                <hr className='my-5' />
 
-            <Dropdown
-                items={dropdownItems}
-                onClickMenu={(key) => {
-                    console.log(key)
-                }}
-            >
-                Dropdown
-            </Dropdown>
+                <Dropdown
+                    items={dropdownItems}
+                    onClickMenu={(key) => {
+                        console.log(key)
+                    }}
+                >
+                    Dropdown
+                </Dropdown>
 
-            <hr className='my-5' />
+                <hr className='my-5' />
 
-            <Menu
-                items={menuItems}
-            />
+                <Menu
+                    items={menuItems}
+                />
+            </div>
+
+            <div className="w-full">
+                <DarkLightToggle />
+            </div>
         </aside>
     )
 }
