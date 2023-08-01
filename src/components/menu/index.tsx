@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react'
 import { MenuItemType } from '../../types'
 import { BsChevronDown, BsChevronUp } from "react-icons/bs"
+import { useLocation, useNavigate } from 'react-router-dom'
 
 type MenuProps = {
     items?: MenuItemType[],
@@ -9,6 +10,8 @@ type MenuProps = {
 }
 
 const Menu: FC<MenuProps> = ({ items, onClickMenu = () => { } }) => {
+    const navigate = useNavigate();
+    const { pathname } = useLocation();
     const [activeKey, setActiveKey] = useState<string>("");
     const [activeMenu, setActiveMenu] = useState<string>("");
 
@@ -19,10 +22,10 @@ const Menu: FC<MenuProps> = ({ items, onClickMenu = () => { } }) => {
                     return (
                         <div key={item.key}>
                             <li
-                                onClick={(e) => {
+                                onClick={() => {
                                     if ((item.children || []).length < 1) {
-                                        e.stopPropagation();
                                         onClickMenu(item.key);
+                                        navigate(`/${item.key}`);
                                     }
 
                                     if (activeMenu === item.key) {
@@ -31,7 +34,7 @@ const Menu: FC<MenuProps> = ({ items, onClickMenu = () => { } }) => {
                                         setActiveMenu(item.key);
                                     }
                                 }}
-                                className='transition-all flex items-center justify-between rounded-lg py-2'
+                                className={`${(item.children || []).length < 1 && pathname.includes(item.key) ? "bg-orange-400 dark:hover:bg-orange-300 hover:bg-orange-200 text-white p-3" : "py-2"} transition-all flex items-center justify-between rounded-lg`}
                             >
                                 {item.label}
                                 {(item.children || []).length > 1
@@ -45,11 +48,12 @@ const Menu: FC<MenuProps> = ({ items, onClickMenu = () => { } }) => {
                                         return (
                                             <li
                                                 key={child.key}
-                                                className={`${activeKey === child.key ? "bg-orange-400 dark:hover:bg-orange-300 hover:bg-orange-200 text-white" : "hover:bg-orange-200 dark:hover:bg-orange-400"} transition-all p-3 rounded-lg my-2 flex items-center gap-[10px]`}
+                                                className={`${activeKey === child.key || pathname.includes(child.key) ? "bg-orange-400 dark:hover:bg-orange-300 hover:bg-orange-200 text-white" : "hover:bg-orange-200 dark:hover:bg-orange-400"} transition-all p-3 rounded-lg my-2 flex items-center gap-[10px]`}
                                                 onClick={(e) => {
                                                     setActiveKey(child.key);
                                                     e.stopPropagation();
                                                     onClickMenu(child.key);
+                                                    navigate(`/${child.key}`);
                                                 }}
                                             >
                                                 {child.icon}

@@ -1,6 +1,7 @@
 import React from 'react'
 import Dropdown from '../../components/dropdown'
 import Menu from '../../components/menu'
+import { HiOutlineCalendarDays } from "react-icons/hi2"
 import { CiGrid42 } from "react-icons/ci"
 import { BsListTask } from "react-icons/bs"
 import DarkLightToggle from '../../components/dark-light/index'
@@ -32,9 +33,14 @@ const SideBar = () => {
                     icon: <CiGrid42 className="text-[20px]" />
                 },
                 {
-                    key: "taskList",
+                    key: "task-list",
                     label: "Task List",
                     icon: <BsListTask className="text-[20px]" />
+                },
+                {
+                    key: "calendar",
+                    label: "Calendar",
+                    icon: <HiOutlineCalendarDays className="text-[20px]" />
                 },
             ]
         },

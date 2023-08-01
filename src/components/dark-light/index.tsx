@@ -28,7 +28,7 @@ const DarkLightToggle = () => {
                     <button
                         key={opt.type}
                         onClick={() => setTheme(opt.type)}
-                        className={`${theme === opt.type && "bg-gray-500 text-white"} transition-all flex w-[30%] items-center justify-center text-[11px] gap-[5px] px-2 rounded-xl py-1`}
+                        className={`${theme === opt.type && "dark:bg-gray-500 dark:text-white bg-white text-black"} transition-all flex w-[30%] items-center justify-center text-[11px] gap-[5px] px-2 rounded-xl py-1`}
                     >
                         {opt.icon}
                     </button>
