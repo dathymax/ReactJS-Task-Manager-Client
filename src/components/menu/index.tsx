@@ -1,4 +1,4 @@
-import React, { Children, FC, useState } from 'react'
+import React, { FC, useState } from 'react'
 import { MenuItemType } from '../../types'
 import { BsChevronDown, BsChevronUp } from "react-icons/bs"
 
@@ -14,12 +14,11 @@ const Menu: FC<MenuProps> = ({ items, onClickMenu = () => { } }) => {
 
     return (
         <div>
-            <ul className='cursor-pointer transition-all text-gray-500'>
+            <ul className='dark:text-white cursor-pointer transition-all text-gray-500'>
                 {items?.map(item => {
                     return (
-                        <>
+                        <div key={item.key}>
                             <li
-                                key={item.key}
                                 onClick={(e) => {
                                     if ((item.children || []).length < 1) {
                                         e.stopPropagation();
@@ -46,7 +45,7 @@ const Menu: FC<MenuProps> = ({ items, onClickMenu = () => { } }) => {
                                         return (
                                             <li
                                                 key={child.key}
-                                                className={`${activeKey === child.key ? "bg-orange-400 hover:bg-orange-300 text-white" : "hover:bg-orange-200"} transition-all px-3 py-2 rounded-lg my-1 flex items-center gap-[7px]`}
+                                                className={`${activeKey === child.key ? "bg-orange-400 dark:hover:bg-orange-300 hover:bg-orange-200 text-white" : "hover:bg-orange-200 dark:hover:bg-orange-400"} transition-all p-3 rounded-lg my-2 flex items-center gap-[10px]`}
                                                 onClick={(e) => {
                                                     setActiveKey(child.key);
                                                     e.stopPropagation();
@@ -60,7 +59,7 @@ const Menu: FC<MenuProps> = ({ items, onClickMenu = () => { } }) => {
                                     })}
                                 </ul>
                                 : <></>}
-                        </>
+                        </div>
                     )
                 })}
             </ul>

@@ -1,14 +1,11 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Dropdown from '../../components/dropdown'
 import Menu from '../../components/menu'
 import { CiGrid42 } from "react-icons/ci"
 import { BsListTask } from "react-icons/bs"
 import DarkLightToggle from '../../components/dark-light/index'
-import { LayoutContext } from '../../contexts/LayoutContext'
 
 const SideBar = () => {
-    const { theme } = useContext(LayoutContext);
-
     const dropdownItems = [
         {
             key: "1",
@@ -44,10 +41,10 @@ const SideBar = () => {
     ]
 
     return (
-        <aside className={`${theme === "light" ? "bg-white" : "bg-gray-800"} p-4 border-r border-gray-300 h-screen w-[250px] flex items-center flex-col justify-between`}>
+        <aside className={`dark:bg-gray-500 dark:text-white p-4 border-r border-gray-300 h-screen w-[250px] flex items-center flex-col justify-between`}>
             <div className="w-full">
                 <p className='text-[1.7rem] font-[600] m-0 leading-[2.2rem]'>
-                    <span className='text-orange-400'>Task</span>
+                    <span className='text-orange-400 text-[1.7rem]'>Task</span>
                     manager
                 </p>
                 <span className='text-[12px]'>
@@ -56,14 +53,26 @@ const SideBar = () => {
 
                 <hr className='my-5' />
 
-                <Dropdown
-                    items={dropdownItems}
-                    onClickMenu={(key) => {
-                        console.log(key)
-                    }}
-                >
-                    Dropdown
-                </Dropdown>
+                <div className="border border-gray-300 p-3 rounded-xl">
+
+                    <div className="flex items-center justify-center gap-[10px]">
+                        <img src="https://beebom.com/wp-content/uploads/2023/05/zoro-family-mother-and-father-name-one-piece.jpg" alt="Avatar" className='w-[35px] h-[35px] rounded-full object-cover' />
+                        <div className='text-[14px] m-0 font-medium'>
+                            <Dropdown
+                                items={dropdownItems}
+                                onClickMenu={(key) => {
+                                    console.log(key)
+                                }}
+                            >
+                                Do Tuan Dat
+                            </Dropdown>
+                            <p className='text-[11px] dark:text-white text-gray-500 m-0' title='dathymax@gmail.com'>
+                                dathymax@gmail.com
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
 
                 <hr className='my-5' />
 
@@ -75,7 +84,7 @@ const SideBar = () => {
             <div className="w-full">
                 <DarkLightToggle />
             </div>
-        </aside>
+        </aside >
     )
 }
 
