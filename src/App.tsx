@@ -12,7 +12,7 @@ function App() {
                     <Route index path="/" element={<OverviewPage />} />
                     <Route path="/overview" element={<OverviewPage />} />
                     <Route path="/task-list" element={<TaskListPage />} />
-                    <Route path="/calendar" element={<CalendarPage />} />
+                    {/* <Route path="/calendar" element={<CalendarPage />} /> */}
                 </Route>
             </Routes>
         </BrowserRouter>

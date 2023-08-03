@@ -34,7 +34,7 @@ const Menu: FC<MenuProps> = ({ items, onClickMenu = () => { } }) => {
                                         setActiveMenu(item.key);
                                     }
                                 }}
-                                className={`${(item.children || []).length < 1 && pathname.includes(item.key) ? "bg-orange-400 dark:hover:bg-orange-300 hover:bg-orange-200 text-white p-3" : "py-2"} transition-all flex items-center justify-between rounded-lg`}
+                                className={`${(item.children || []).length < 1 && pathname.includes(item.key) ? "bg-orange-400 dark:hover:bg-orange-300 hover:bg-orange-200 text-white p-3" : "py-2"} transition-all flex items-center justify-between rounded-xl`}
                             >
                                 {item.label}
                                 {(item.children || []).length > 1
@@ -48,7 +48,7 @@ const Menu: FC<MenuProps> = ({ items, onClickMenu = () => { } }) => {
                                         return (
                                             <li
                                                 key={child.key}
-                                                className={`${activeKey === child.key || pathname.includes(child.key) ? "bg-orange-400 dark:hover:bg-orange-300 hover:bg-orange-200 text-white" : "hover:bg-orange-200 dark:hover:bg-orange-400"} transition-all p-3 rounded-lg my-2 flex items-center gap-[10px]`}
+                                                className={`${activeKey === child.key || pathname.includes(child.key) ? "bg-orange-400 dark:hover:bg-orange-300 hover:bg-orange-200 text-white" : "hover:bg-orange-200 dark:hover:bg-orange-400"} transition-all p-3 rounded-xl my-2 flex items-center gap-[10px]`}
                                                 onClick={(e) => {
                                                     setActiveKey(child.key);
                                                     e.stopPropagation();

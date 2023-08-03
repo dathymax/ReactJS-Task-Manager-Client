@@ -37,17 +37,17 @@ const SideBar = () => {
                     label: "Task List",
                     icon: <BsListTask className="text-[20px]" />
                 },
-                {
-                    key: "calendar",
-                    label: "Calendar",
-                    icon: <HiOutlineCalendarDays className="text-[20px]" />
-                },
+                // {
+                //     key: "calendar",
+                //     label: "Calendar",
+                //     icon: <HiOutlineCalendarDays className="text-[20px]" />
+                // },
             ]
         },
     ]
 
     return (
-        <aside className={`dark:bg-gray-500 dark:text-white p-4 border-r border-gray-300 h-screen w-[250px] flex items-center flex-col justify-between`}>
+        <aside className={`dark:bg-gray-400 dark:text-white bg-gray-50 p-4 border-r border-gray-100 h-screen w-[250px] flex items-center flex-col justify-between`}>
             <div className="w-full">
                 <p className='text-[1.7rem] font-[600] m-0 leading-[2.2rem]'>
                     <span className='text-orange-400 text-[1.7rem]'>Task</span>
