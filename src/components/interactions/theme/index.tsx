@@ -1,5 +1,6 @@
-import React, { useContext } from 'react'
-import { IThemeContext, ThemeContext } from '../../../contexts/theme'
+import React from 'react'
+import { useThemeContext } from '../../../contexts/theme'
+import { AiOutlineCheck } from "react-icons/ai"
 
 const COLORS = [
     {
@@ -14,20 +15,23 @@ const COLORS = [
         color: "blue",
         key: "blue"
     },
-] as { color?: string, key?: string }[]
+] as { color: string, key: string }[]
 
 const Theme = () => {
-    const { handleSetTheme } = useContext<IThemeContext | null>(ThemeContext);
+    const { theme, handleSetTheme } = useThemeContext();
 
     return (
         <div className='flex items-center justify-center gap-3'>
             {COLORS.map(color => {
                 return (
                     <div
-                        className={`rounded-full w-[20px] h-[20px] cursor-pointer`}
+                        key={color.key}
+                        className={`rounded-full w-[30px] h-[30px] cursor-pointer flex items-center justify-center font-bold`}
                         style={{ background: color.color }}
                         onClick={() => handleSetTheme(color.color)}
-                    />
+                    >
+                        {theme === color.color && <AiOutlineCheck className="text-white" />}
+                    </div>
                 )
             })}
         </div>

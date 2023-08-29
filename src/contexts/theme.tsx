@@ -1,25 +1,42 @@
-import React, { FC, useMemo } from "react";
+import React, { FC, useContext, useEffect, useMemo, useState } from "react";
 
 export interface IThemeContext {
-    setTheme?: (theme: string) => void
+    theme: string
+    handleSetTheme: (theme: string) => void
 }
 
-export const ThemeContext = React.createContext<IThemeContext | null>(null);
+export const ThemeContext = React.createContext<IThemeContext | undefined>(undefined);
 
 interface ThemeContextProviderProps {
     children?: React.ReactNode
 }
 
+export const useThemeContext = () => {
+    const context = useContext(ThemeContext);
+
+    if (!context) {
+        throw new Error('useThemeContext must be used within a ThemeContextProvider');
+    }
+
+    return context;
+};
+
 const ThemeContextProvider: FC<ThemeContextProviderProps> = ({ children }) => {
-    const setTheme = (theme: string) => {
+    const [theme, setTheme] = useState<string>("");
+
+    useEffect(() => {
+        setTheme(localStorage.getItem("theme") || "green");
+    }, [localStorage.getItem("theme")])
+
+    const handleSetTheme = (theme: string) => {
         localStorage.setItem("theme", theme);
     }
 
-    const themeContext = useMemo(() => {
+    const themeContext: IThemeContext = useMemo(() => {
         return {
-            setTheme
+            theme, handleSetTheme
         }
-    }, [setTheme])
+    }, [theme])
 
     return (
         <ThemeContext.Provider value={themeContext} >

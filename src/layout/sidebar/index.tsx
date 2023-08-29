@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { RxDashboard } from "react-icons/rx"
 import { TbBrandGoogleAnalytics } from "react-icons/tb"
-import { GrTask } from "react-icons/gr"
+import { GoTasklist } from "react-icons/go"
 import Theme from '../../components/interactions/theme'
+import { useThemeContext } from '../../contexts/theme'
 
 interface MenuItem {
     icon?: React.ReactNode,
@@ -24,11 +25,12 @@ const MENU: MenuItem[] = [
     {
         key: "taskList",
         label: "Task List",
-        icon: <GrTask className="text-[20px]" />
+        icon: <GoTasklist className="text-[20px]" />
     },
 ]
 
 const LayoutSidebar = () => {
+    const { theme } = useThemeContext();
     const [active, setActive] = useState<number>(0);
 
     return (
@@ -38,7 +40,7 @@ const LayoutSidebar = () => {
                     return (
                         <li
                             key={item.key}
-                            className={`my-2 select-none p-3 flex items-center gap-4 cursor-pointer font-bold ${active === index && "text-green-500"}`}
+                            className={`my-2 select-none p-3 flex items-center gap-4 cursor-pointer font-bold ${active === index && `text-[${theme}]`}`}
                             onClick={() => setActive(index)}
                         >
                             {item.icon}
