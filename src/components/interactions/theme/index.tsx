@@ -4,20 +4,20 @@ import { AiOutlineCheck } from "react-icons/ai"
 
 const COLORS = [
     {
-        color: "red",
-        key: "red"
+        color: "red-500",
+        key: "red-500"
     },
     {
-        color: "green",
-        key: "green"
+        color: "green-500",
+        key: "green-500"
     },
     {
-        color: "blue",
-        key: "blue"
+        color: "blue-500",
+        key: "blue-500"
     },
 ] as { color: string, key: string }[]
 
-const Theme = () => {
+const ThemeSwitch = () => {
     const { theme, handleSetTheme } = useThemeContext();
 
     return (
@@ -26,8 +26,7 @@ const Theme = () => {
                 return (
                     <div
                         key={color.key}
-                        className={`rounded-full w-[30px] h-[30px] cursor-pointer flex items-center justify-center font-bold`}
-                        style={{ background: color.color }}
+                        className={`bg-${color.color} rounded-full w-[30px] h-[30px] cursor-pointer flex items-center justify-center font-bold`}
                         onClick={() => handleSetTheme(color.color)}
                     >
                         {theme === color.color && <AiOutlineCheck className="text-white" />}
@@ -38,4 +37,4 @@ const Theme = () => {
     )
 }
 
-export default Theme
+export default ThemeSwitch

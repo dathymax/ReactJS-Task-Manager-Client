@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect, useMemo, useState } from "react";
+import React, { PropsWithChildren, useContext, useMemo, useState } from "react";
 
 export interface IThemeContext {
     theme: string
@@ -6,10 +6,6 @@ export interface IThemeContext {
 }
 
 export const ThemeContext = React.createContext<IThemeContext | undefined>(undefined);
-
-interface ThemeContextProviderProps {
-    children?: React.ReactNode
-}
 
 export const useThemeContext = () => {
     const context = useContext(ThemeContext);
@@ -21,15 +17,15 @@ export const useThemeContext = () => {
     return context;
 };
 
-const ThemeContextProvider: FC<ThemeContextProviderProps> = ({ children }) => {
-    const [theme, setTheme] = useState<string>("");
-
-    useEffect(() => {
-        setTheme(localStorage.getItem("theme") || "green");
-    }, [localStorage.getItem("theme")])
+const ThemeContextProvider = ({ children }: PropsWithChildren<{}>) => {
+    const [theme, setTheme] = useState<string>(() => {
+        const storedTheme = localStorage.getItem('theme');
+        return storedTheme ? storedTheme : "bg-green-500";
+    });
 
     const handleSetTheme = (theme: string) => {
         localStorage.setItem("theme", theme);
+        setTheme(theme);
     }
 
     const themeContext: IThemeContext = useMemo(() => {
