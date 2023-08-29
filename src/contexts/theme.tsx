@@ -20,7 +20,7 @@ export const useThemeContext = () => {
 const ThemeContextProvider = ({ children }: PropsWithChildren<{}>) => {
     const [theme, setTheme] = useState<string>(() => {
         const storedTheme = localStorage.getItem('theme');
-        return storedTheme ? storedTheme : "bg-green-500";
+        return storedTheme ? storedTheme : "green-500";
     });
 
     const handleSetTheme = (theme: string) => {

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useThemeContext } from '../../../contexts/theme'
 import { AiOutlineCheck } from "react-icons/ai"
+import { genBgColor } from '../../../helpers/theme'
 
 const COLORS = [
     {
@@ -26,7 +27,7 @@ const ThemeSwitch = () => {
                 return (
                     <div
                         key={color.key}
-                        className={`bg-${color.color} rounded-full w-[30px] h-[30px] cursor-pointer flex items-center justify-center font-bold`}
+                        className={`${genBgColor(color.color)} rounded-full w-[30px] h-[30px] cursor-pointer flex items-center justify-center font-bold`}
                         onClick={() => handleSetTheme(color.color)}
                     >
                         {theme === color.color && <AiOutlineCheck className="text-white" />}
