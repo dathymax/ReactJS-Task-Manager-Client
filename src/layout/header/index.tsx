@@ -25,9 +25,9 @@ const LayoutHeader = () => {
                 height: "80px",
                 maxHeight: "80px"
             }}
-            className='flex items-center px-5 rounded-bl-xl'
+            className='grid grid-cols-5 gap-10 px-5 rounded-bl-xl'
         >
-            <div className="flex items-center gap-10">
+            <div className="col-span-3 flex items-center justify-between">
                 <Tabs
                     items={TABS__ITEMS}
                 />

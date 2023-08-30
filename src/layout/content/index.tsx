@@ -9,7 +9,6 @@ const LayoutContent = () => {
                 height: "calc(100vh - 82px)",
                 maxHeight: "calc(100vh - 82px)",
             }}
-            className='p-5'
         >
             <Outlet />
         </section>
