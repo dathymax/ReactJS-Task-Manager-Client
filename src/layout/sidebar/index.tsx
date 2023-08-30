@@ -7,11 +7,12 @@ import ThemeSwitch from '../../components/interactions/theme'
 import Button from '../../components/interactions/button/Button'
 import { genTextColor } from '../../helpers/theme'
 import { useThemeContext } from '../../contexts/theme'
+import { Link } from 'react-router-dom'
 
 interface MenuItem {
     icon?: React.ReactNode,
     label?: string | number | React.ReactNode,
-    key?: string | number
+    key: string
 }
 
 const MENU: MenuItem[] = [
@@ -26,7 +27,7 @@ const MENU: MenuItem[] = [
         icon: <TbBrandGoogleAnalytics className="text-[20px]" />
     },
     {
-        key: "taskList",
+        key: "task-list",
         label: "Task List",
         icon: <GoTasklist className="text-[20px]" />
     },
@@ -54,16 +55,18 @@ const LayoutSidebar = () => {
                 <ul>
                     {MENU.map((item, index) => {
                         return (
-                            <li
-                                key={item.key}
-                                className={`my-2 select-none p-3 flex items-center gap-4 cursor-pointer font-bold ${active === index ? genTextColor(theme) : ""}`}
-                                onClick={() => setActive(index)}
-                            >
-                                {item.icon}
-                                <span>
-                                    {item.label}
-                                </span>
-                            </li>
+                            <Link key={item.key} to={item.key}>
+                                <li
+                                    className={`my-2 select-none p-3 cursor-pointer flex items-center gap-4 font-bold ${active === index ? genTextColor(theme) : ""}`}
+                                    onClick={() => setActive(index)}
+                                >
+
+                                    {item.icon}
+                                    <span>
+                                        {item.label}
+                                    </span>
+                                </li>
+                            </Link>
                         )
                     })}
                 </ul>

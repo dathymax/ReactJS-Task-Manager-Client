@@ -5,16 +5,17 @@ import { genBorderColor, genTextColor } from '../../../helpers/theme'
 export interface TabItem {
     label?: string | number | React.ReactNode,
     icon?: React.ReactNode,
-    key?: string | number,
+    key?: string,
     children?: React.ReactNode
 }
 
 interface TabsProps extends React.HTMLProps<HTMLDivElement> {
     items: TabItem[],
-    hasActiveEffect?: boolean
+    hasActiveEffect?: boolean,
+    onTabChange?: (key?: string) => void
 }
 
-const Tabs: FC<TabsProps> = ({ items, hasActiveEffect = false }) => {
+const Tabs: FC<TabsProps> = ({ items, hasActiveEffect = false, onTabChange = (key?: string) => { } }) => {
     const { theme } = useThemeContext();
     const [active, setActive] = useState<number>(0);
 
@@ -26,7 +27,12 @@ const Tabs: FC<TabsProps> = ({ items, hasActiveEffect = false }) => {
                         <li
                             key={item.key}
                             className={`h-full transition-all text-[20px] cursor-pointer font-medium inline-flex items-center gap-3 border-b-2 ${active === index ? `${genTextColor(theme)} ${genBorderColor(theme)}` : "text-gray-400 border-transparent"}`}
-                            onClick={() => setActive(index)}
+                            onClick={() => {
+                                setActive(index)
+                                if (onTabChange) {
+                                    onTabChange(item.key)
+                                }
+                            }}
                         >
                             {item.icon}
                             {item.label}
