@@ -25,12 +25,14 @@ const LayoutHeader = () => {
                 height: "80px",
                 maxHeight: "80px"
             }}
-            className='grid grid-cols-5 gap-10 px-5 rounded-bl-xl'
+            className='grid grid-cols-3 gap-10 rounded-bl-xl'
         >
-            <div className="col-span-3 flex items-center justify-between">
-                <Tabs
-                    items={TABS__ITEMS}
-                />
+            <div className="col-span-2 flex items-center justify-between">
+                <div className="pl-10">
+                    <Tabs
+                        items={TABS__ITEMS}
+                    />
+                </div>
 
                 <div className='bg-gray-200 p-3 rounded-xl flex items-center gap-2 w-[350px]'>
                     <CiSearch className="text-xl" />
