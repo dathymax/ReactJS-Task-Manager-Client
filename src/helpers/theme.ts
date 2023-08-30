@@ -11,14 +11,27 @@ export const genBgColor = (color: string) => {
     }
 }
 
-export const genTextColor = (theme: string) => {
-    switch (theme) {
+export const genTextColor = (color: string) => {
+    switch (color) {
         case "green-500":
             return "text-green-500";
         case "red-500":
             return "text-red-500";
         case "blue-500":
             return "text-blue-500";
+        default:
+            break;
+    }
+}
+
+export const genBorderColor = (color: string) => {
+    switch (color) {
+        case "green-500":
+            return "border-green-500";
+        case "red-500":
+            return "border-red-500";
+        case "blue-500":
+            return "border-blue-500";
         default:
             break;
     }

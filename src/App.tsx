@@ -13,8 +13,6 @@ function App() {
         }
     }, [])
 
-    console.log(pathname)
-
     return (
         <Routes>
             <Route element={<Layout />}>

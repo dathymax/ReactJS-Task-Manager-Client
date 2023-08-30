@@ -2,7 +2,7 @@ import React from 'react'
 import Tabs, { TabItem } from '../../components/navigation/tabs'
 import { CiSearch } from "react-icons/ci"
 
-const TABS__ITEMS: TabItem[] = [
+const TABS_ITEMS: TabItem[] = [
     {
         label: "My project",
         key: "myProject"
@@ -28,9 +28,9 @@ const LayoutHeader = () => {
             className='grid grid-cols-3 gap-10 rounded-bl-xl'
         >
             <div className="col-span-2 flex items-center justify-between">
-                <div className="pl-10">
+                <div className="pl-10 h-full">
                     <Tabs
-                        items={TABS__ITEMS}
+                        items={TABS_ITEMS}
                     />
                 </div>
 
