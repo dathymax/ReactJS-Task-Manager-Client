@@ -29,8 +29,8 @@ const DashboardPage = () => {
     }
 
     return (
-        <div className='grid grid-cols-3 gap-10 h-full'>
-            <div className="col-span-2 pl-10 py-5">
+        <div className='grid grid-cols-12 gap-10 h-full'>
+            <div className="col-span-9 pl-10 py-5">
                 <DashboardGeneral />
                 <h2 className='font-medium text-[25px] mt-[50px] mb-4'>My Tasks</h2>
                 <div>
@@ -38,7 +38,7 @@ const DashboardPage = () => {
                 </div>
             </div>
 
-            <div className="col-span-1 border-l">
+            <div className="col-span-3 border-l">
                 <div className="px-10">
                     123
                 </div>

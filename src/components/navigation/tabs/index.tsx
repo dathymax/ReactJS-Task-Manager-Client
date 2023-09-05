@@ -26,7 +26,7 @@ const Tabs: FC<TabsProps> = ({ items, hasActiveEffect = false, onTabChange = (ke
                     return (
                         <li
                             key={item.key}
-                            className={`h-full transition-all text-[20px] cursor-pointer font-medium inline-flex items-center gap-3 border-b-2 ${active === index ? `${genTextColor(theme)} ${genBorderColor(theme)}` : "text-gray-400 border-transparent"}`}
+                            className={`${hasActiveEffect && "pb-4"} h-full transition-all text-[20px] cursor-pointer font-medium inline-flex items-center gap-3 border-b-2 ${active === index ? `${genTextColor(theme)} ${genBorderColor(theme)}` : "text-gray-400 border-transparent"}`}
                             onClick={() => {
                                 setActive(index)
                                 if (onTabChange) {

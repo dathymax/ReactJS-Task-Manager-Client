@@ -5,9 +5,9 @@ import Card from '../../../components/data-display/card'
 
 const DashboardGeneral = () => {
     return (
-        <div className='grid grid-cols-3 gap-10'>
+        <div className='grid grid-cols-12 gap-10'>
             <Card
-                className='col-span-1 bg-orange-400 shadow-lg shadow-orange-400/50 border-none text-white'
+                className='col-span-4 bg-orange-400 shadow-lg shadow-orange-400/50 border-none text-white'
                 bodyStyle={{
                     fontSize: 18
                 }}
@@ -39,7 +39,7 @@ const DashboardGeneral = () => {
             </Card>
 
             <Card
-                className='col-span-1 bg-indigo-400 shadow-lg shadow-indigo-400/50 border-none text-white'
+                className='col-span-4 bg-indigo-400 shadow-lg shadow-indigo-400/50 border-none text-white'
                 bodyStyle={{
                     fontSize: 18
                 }}
@@ -71,7 +71,7 @@ const DashboardGeneral = () => {
             </Card>
 
             <Card
-                className='col-span-1 bg-cyan-400 shadow-lg shadow-cyan-400/50 border-none text-white'
+                className='col-span-4 bg-cyan-400 shadow-lg shadow-cyan-400/50 border-none text-white'
                 bodyStyle={{
                     fontSize: 18
                 }}
