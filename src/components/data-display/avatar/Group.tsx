@@ -20,7 +20,7 @@ const AvatarGroup: FC<AvatarGroupProps> = ({ items = [], maxCount = 3 }) => {
             })}
             <Avatar src={lastItem?.src || ""} shape={lastItem?.shape} className='-ml-4'>
                 <div className="font-bold backdrop-grayscale-0 bg-white/30 w-full h-full flex items-center justify-center rounded-full" >
-                    +{otherItemsLength}
+                    {otherItemsLength}+
                 </div>
             </Avatar>
         </div>

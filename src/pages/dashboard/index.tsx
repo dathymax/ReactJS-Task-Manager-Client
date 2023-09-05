@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import DashboardGeneral from './components/General'
 import Tabs, { TabItem } from '../../components/navigation/tabs'
 import TaskList from './components/TaskList'
+import DashboardTeams from './components/Teams'
+import Divider from '../../components/layout/divider'
+import Calendar from '../../components/data-display/calendar'
 
 const DashboardPage = () => {
     const [activeTab, setActiveTab] = useState<string | undefined>("inProgress");
@@ -30,7 +33,7 @@ const DashboardPage = () => {
 
     return (
         <div className='grid grid-cols-12 gap-10 h-full'>
-            <div className="col-span-9 pl-10 py-5">
+            <div className="col-span-9 pl-10 py-10">
                 <DashboardGeneral />
                 <h2 className='font-medium text-[25px] mt-[50px] mb-4'>My Tasks</h2>
                 <div>
@@ -39,8 +42,10 @@ const DashboardPage = () => {
             </div>
 
             <div className="col-span-3 border-l">
-                <div className="px-10">
-                    123
+                <div className="p-10">
+                    <DashboardTeams />
+                    <Divider />
+                    <Calendar />
                 </div>
             </div>
         </div>
