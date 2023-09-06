@@ -7,7 +7,7 @@ interface TaskListProps {
 
 const TaskList: FC<TaskListProps> = ({ activeTab }) => {
     return (
-        <div>
+        <div className='pt-5'>
             <TaskItem filterType={activeTab} />
             <TaskItem filterType={activeTab} />
             <TaskItem filterType={activeTab} />

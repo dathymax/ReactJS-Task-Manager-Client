@@ -1,0 +1,7 @@
+.recent-activity__border {
+	width: 2px;
+	border-left: 1px dashed lightgray;
+	min-height: 1000px;
+	height: 1000px;
+	margin-top: 20px;
+}

@@ -2,6 +2,10 @@ import React, { useState } from 'react'
 import DashboardGeneral from './components/General'
 import Tabs, { TabItem } from '../../components/navigation/tabs'
 import TaskList from './components/TaskList'
+import DashboardTeams from './components/Teams'
+import Divider from '../../components/layout/divider'
+import Calendar from '../../components/data-display/calendar'
+import RecentActivity, { RecentActivityItem } from '../../components/data-display/timeline/RecentActivity'
 
 const DashboardPage = () => {
     const [activeTab, setActiveTab] = useState<string | undefined>("inProgress");
@@ -24,13 +28,44 @@ const DashboardPage = () => {
         },
     ]
 
+    const RECENT_ACTIVITIES: RecentActivityItem[] = [
+        {
+            name: "Jtadd",
+            avatar: "",
+            time: "06/09/2023",
+            task: "string",
+            description: "string"
+        },
+        {
+            name: "Jtadd",
+            avatar: "",
+            time: "06/09/2023",
+            task: "string",
+            description: "string"
+        },
+        {
+            name: "Jtadd",
+            avatar: "",
+            time: "06/09/2023",
+            task: "string",
+            description: "string"
+        },
+        {
+            name: "Jtadd",
+            avatar: "",
+            time: "06/09/2023",
+            task: "string",
+            description: "string"
+        },
+    ]
+
     const onTabChange = (key?: string) => {
         setActiveTab(key);
     }
 
     return (
-        <div className='grid grid-cols-3 gap-10 h-full'>
-            <div className="col-span-2 pl-10 py-5">
+        <div className='grid grid-cols-12 gap-10 h-full'>
+            <div className="col-span-9 pl-10 py-10">
                 <DashboardGeneral />
                 <h2 className='font-medium text-[25px] mt-[50px] mb-4'>My Tasks</h2>
                 <div>
@@ -38,9 +73,13 @@ const DashboardPage = () => {
                 </div>
             </div>
 
-            <div className="col-span-1 border-l">
-                <div className="px-10">
-                    123
+            <div className="col-span-3 border-l">
+                <div className="p-10">
+                    <DashboardTeams />
+                    <Divider />
+                    <Calendar />
+                    <Divider />
+                    <RecentActivity items={RECENT_ACTIVITIES} />
                 </div>
             </div>
         </div>
