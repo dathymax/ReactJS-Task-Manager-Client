@@ -5,6 +5,7 @@ import TaskList from './components/TaskList'
 import DashboardTeams from './components/Teams'
 import Divider from '../../components/layout/divider'
 import Calendar from '../../components/data-display/calendar'
+import RecentActivity, { RecentActivityItem } from '../../components/data-display/timeline/RecentActivity'
 
 const DashboardPage = () => {
     const [activeTab, setActiveTab] = useState<string | undefined>("inProgress");
@@ -27,6 +28,37 @@ const DashboardPage = () => {
         },
     ]
 
+    const RECENT_ACTIVITIES: RecentActivityItem[] = [
+        {
+            name: "Jtadd",
+            avatar: "",
+            time: "06/09/2023",
+            task: "string",
+            description: "string"
+        },
+        {
+            name: "Jtadd",
+            avatar: "",
+            time: "06/09/2023",
+            task: "string",
+            description: "string"
+        },
+        {
+            name: "Jtadd",
+            avatar: "",
+            time: "06/09/2023",
+            task: "string",
+            description: "string"
+        },
+        {
+            name: "Jtadd",
+            avatar: "",
+            time: "06/09/2023",
+            task: "string",
+            description: "string"
+        },
+    ]
+
     const onTabChange = (key?: string) => {
         setActiveTab(key);
     }
@@ -46,6 +78,8 @@ const DashboardPage = () => {
                     <DashboardTeams />
                     <Divider />
                     <Calendar />
+                    <Divider />
+                    <RecentActivity items={RECENT_ACTIVITIES} />
                 </div>
             </div>
         </div>
