@@ -1,9 +1,10 @@
 import React from 'react'
-import Tabs, { TabItem } from '../../components/navigation/tabs'
+import Tabs, { TabItem } from '../../../components/navigation/tabs'
 import { CiSearch } from "react-icons/ci"
-import Avatar from '../../components/data-display/avatar/Avatar'
-import Zoro from "../../assets/images/zoro.jpg"
-import Notification from '../../components/feedback/notification'
+import Avatar from '../../../components/data-display/avatar/Avatar'
+import Zoro from "../../../assets/images/zoro.jpg"
+import { useThemeContext } from '../../../contexts/theme'
+import Notification from '../../../components/feedback/notification'
 
 const TABS_ITEMS: TabItem[] = [
     {
@@ -20,7 +21,7 @@ const TABS_ITEMS: TabItem[] = [
     },
 ]
 
-const LayoutHeader = () => {
+const DashboardHeader = () => {
     return (
         <header
             style={{
@@ -57,4 +58,4 @@ const LayoutHeader = () => {
     )
 }
 
-export default LayoutHeader
+export default DashboardHeader
