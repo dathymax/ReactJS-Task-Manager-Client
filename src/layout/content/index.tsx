@@ -5,9 +5,10 @@ const LayoutContent = () => {
     return (
         <section
             style={{
-                width: "calc(100vw - 200px)",
-                height: "calc(100vh - 82px)",
-                maxHeight: "calc(100vh - 82px)",
+                width: "100vw",
+                maxWidth: "100vw",
+                height: "100vh",
+                maxHeight: "100vh",
             }}
         >
             <Outlet />

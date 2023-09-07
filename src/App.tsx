@@ -4,6 +4,7 @@ import DashboardPage from "./pages/dashboard";
 import { useEffect } from "react";
 import AnalyticsPage from "./pages/analytics";
 import TaskListPage from "./pages/task-list";
+import InboxPage from "./pages/inbox";
 
 function App() {
     const navigate = useNavigate();
@@ -21,6 +22,7 @@ function App() {
                 <Route index path="/dashboard" element={<DashboardPage />} />
                 <Route path="/analytics" element={<AnalyticsPage />} />
                 <Route path="/task-list" element={<TaskListPage />} />
+                <Route path="/inbox" element={<InboxPage />} />
             </Route>
         </Routes>
     )

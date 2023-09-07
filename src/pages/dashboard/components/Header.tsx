@@ -1,11 +1,11 @@
 import React from 'react'
-import Tabs, { TabItem } from '../../components/navigation/tabs'
+import Tabs, { TabItem } from '../../../components/navigation/tabs'
 import { CiSearch } from "react-icons/ci"
-import Avatar from '../../components/data-display/avatar/Avatar'
-import Zoro from "../../assets/images/zoro.jpg"
+import Avatar from '../../../components/data-display/avatar/Avatar'
+import Zoro from "../../../assets/images/zoro.jpg"
 import { BiBell } from "react-icons/bi"
-import { useThemeContext } from '../../contexts/theme'
-import { genTextColor } from '../../helpers/theme'
+import { useThemeContext } from '../../../contexts/theme'
+import { genTextColor } from '../../../helpers/theme'
 
 const TABS_ITEMS: TabItem[] = [
     {
@@ -22,7 +22,7 @@ const TABS_ITEMS: TabItem[] = [
     },
 ]
 
-const LayoutHeader = () => {
+const DashboardHeader = () => {
     const { theme } = useThemeContext();
 
     return (
@@ -61,4 +61,4 @@ const LayoutHeader = () => {
     )
 }
 
-export default LayoutHeader
+export default DashboardHeader

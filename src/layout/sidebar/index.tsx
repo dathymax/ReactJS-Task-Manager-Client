@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { RxDashboard } from "react-icons/rx"
 import { TbBrandGoogleAnalytics } from "react-icons/tb"
 import { GoTasklist } from "react-icons/go"
+import { AiOutlineMessage } from "react-icons/ai"
 import { BsPlusLg } from "react-icons/bs"
 import ThemeSwitch from '../../components/interactions/theme'
 import Button from '../../components/interactions/button/Button'
@@ -22,15 +23,15 @@ const MENU: MenuItem[] = [
         icon: <RxDashboard className="text-[20px]" />
     },
     {
-        key: "analytics",
-        label: "Analytics",
-        icon: <TbBrandGoogleAnalytics className="text-[20px]" />
+        key: "inbox",
+        label: "Inbox",
+        icon: <AiOutlineMessage className="text-[20px]" />
     },
-    {
-        key: "task-list",
-        label: "Task List",
-        icon: <GoTasklist className="text-[20px]" />
-    },
+    // {
+    //     key: "task-list",
+    //     label: "Task List",
+    //     icon: <GoTasklist className="text-[20px]" />
+    // },
 ]
 
 const LayoutSidebar = () => {
