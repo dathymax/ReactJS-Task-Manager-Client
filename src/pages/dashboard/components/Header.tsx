@@ -3,9 +3,8 @@ import Tabs, { TabItem } from '../../../components/navigation/tabs'
 import { CiSearch } from "react-icons/ci"
 import Avatar from '../../../components/data-display/avatar/Avatar'
 import Zoro from "../../../assets/images/zoro.jpg"
-import { BiBell } from "react-icons/bi"
 import { useThemeContext } from '../../../contexts/theme'
-import { genTextColor } from '../../../helpers/theme'
+import Notification from '../../../components/feedback/notification'
 
 const TABS_ITEMS: TabItem[] = [
     {
@@ -23,8 +22,6 @@ const TABS_ITEMS: TabItem[] = [
 ]
 
 const DashboardHeader = () => {
-    const { theme } = useThemeContext();
-
     return (
         <header
             style={{
@@ -55,7 +52,7 @@ const DashboardHeader = () => {
                         <span className="text-gray-400 text-[13px]">Project manager</span>
                     </div>
                 </div>
-                <BiBell className={`text-2xl ${genTextColor(theme)}`} />
+                <Notification />
             </div>
         </header>
     )
