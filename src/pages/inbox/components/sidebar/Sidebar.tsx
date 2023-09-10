@@ -1,9 +1,12 @@
 import React from 'react'
 import InputSearch from '../../../../components/data-entry/input/Search'
 import Divider from '../../../../components/layout/divider'
-import InboxSidebarUsers from './Users'
+import InboxSidebarUsers from './users/Users'
+import { useInboxPageContext } from '../..'
 
 const InboxSidebar = () => {
+    const { items } = useInboxPageContext();
+
     return (
         <div>
             <h2 className='font-bold text-[25px]'>Chats</h2>
@@ -11,7 +14,7 @@ const InboxSidebar = () => {
                 <InputSearch />
             </div>
             <Divider />
-            <InboxSidebarUsers />
+            <InboxSidebarUsers items={items} />
         </div>
     )
 }
