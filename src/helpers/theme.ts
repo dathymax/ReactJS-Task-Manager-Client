@@ -37,6 +37,19 @@ export const genTextColor = (color: string) => {
     }
 }
 
+export const genTextColorHover = (color: string) => {
+    switch (color) {
+        case "green-500":
+            return "hover:text-green-500";
+        case "red-500":
+            return "hover:text-red-500";
+        case "blue-500":
+            return "hover:text-blue-500";
+        default:
+            break;
+    }
+}
+
 export const genTextColorLighter = (color: string) => {
     switch (color) {
         case "green-500":

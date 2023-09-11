@@ -3,12 +3,15 @@ import Avatar from '../../../../../components/data-display/avatar/Avatar'
 import { FiMoreHorizontal } from 'react-icons/fi'
 import { IInboxSidebarUser } from './Users'
 import { useNavigate, useSearchParams } from 'react-router-dom'
+import { useThemeContext } from '../../../../../contexts/theme'
+import { genTextColorHover } from '../../../../../helpers/theme'
 
 interface InboxSidebarUserProps {
     item: IInboxSidebarUser
 }
 
 const InboxSidebarUser: FC<InboxSidebarUserProps> = ({ item }) => {
+    const { theme } = useThemeContext();
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
     const inboxUserId = searchParams.get("inboxUserId");
@@ -32,10 +35,9 @@ const InboxSidebarUser: FC<InboxSidebarUserProps> = ({ item }) => {
             </div>
 
             <div
-                className="inbox-user__more hidden absolute p-1 right-2 rounded-full hover:bg-gray-400 bg-gray-300"
+                className={`${genTextColorHover(theme)} inbox-user__more hidden absolute p-1 right-2 rounded-full bg-gray-300`}
                 onClick={(e) => {
                     e.stopPropagation()
-                    console.log("jtadd");
                 }}
             >
                 <FiMoreHorizontal className="text-[20px]" />

@@ -3,11 +3,11 @@ import Avatar from '../../../../components/data-display/avatar/Avatar'
 import { BsFillCameraVideoFill, BsFillTelephoneFill, BsInfoCircleFill } from "react-icons/bs"
 import { useThemeContext } from '../../../../contexts/theme'
 import { genTextColor } from '../../../../helpers/theme'
-import { useInboxPageContext } from '../..'
+import { useInboxPageContext } from '../../../../contexts/inbox'
 
 const InboxContentHeader = () => {
     const { theme } = useThemeContext();
-    const { itemById } = useInboxPageContext();
+    const { inboxById } = useInboxPageContext();
 
     return (
         <div className='px-4 border-b border-gray-300 h-[70px] flex items-center'>
@@ -15,7 +15,7 @@ const InboxContentHeader = () => {
                 <div className="flex items-center justify-center gap-3">
                     <Avatar />
                     <div className="name">
-                        <p className='font-bold text-black'>{itemById.name}</p>
+                        <p className='font-bold text-black'>{inboxById.name}</p>
                         <span className='text-gray-400'>Active 15 minutes ago</span>
                     </div>
                 </div>

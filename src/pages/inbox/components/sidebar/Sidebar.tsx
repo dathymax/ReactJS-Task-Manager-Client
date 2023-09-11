@@ -2,10 +2,10 @@ import React from 'react'
 import InputSearch from '../../../../components/data-entry/input/Search'
 import Divider from '../../../../components/layout/divider'
 import InboxSidebarUsers from './users/Users'
-import { useInboxPageContext } from '../..'
+import { useInboxPageContext } from '../../../../contexts/inbox'
 
 const InboxSidebar = () => {
-    const { items } = useInboxPageContext();
+    const { inboxData } = useInboxPageContext();
 
     return (
         <div>
@@ -14,7 +14,7 @@ const InboxSidebar = () => {
                 <InputSearch />
             </div>
             <Divider />
-            <InboxSidebarUsers items={items} />
+            <InboxSidebarUsers items={inboxData} />
         </div>
     )
 }
