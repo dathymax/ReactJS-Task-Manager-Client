@@ -1,10 +1,12 @@
 import React, { PropsWithChildren, useContext, useMemo, useState } from "react";
 import { IInboxSidebarUser } from "../pages/inbox/components/sidebar/users/Users";
 import { useSearchParams } from "react-router-dom";
+import Zoro from "../assets/images/zoro.jpg";
+import Sanji from "../assets/images/sanji.png";
 
 export interface IInboxPageContext {
     inboxData: IInboxSidebarUser[],
-    inboxById: IInboxSidebarUser
+    inboxById: IInboxSidebarUser,
 }
 
 export const InboxPageContext = React.createContext<IInboxPageContext | undefined>(undefined);
@@ -25,9 +27,49 @@ const InboxPageContextProvider = ({ children }: PropsWithChildren<{}>) => {
     const [inboxData, setInboxData] = useState<IInboxSidebarUser[]>([
         {
             id: 1,
-            src: "",
-            name: "Jtadd",
-            message: "Jtadd is a boy in a poor family"
+            senderName: "Jtadd 1",
+            senderSrc: Zoro,
+            latestMessage: "Jtadd 1 recipient is a boy in a rich family",
+            messages: [
+                {
+                    src: Zoro,
+                    name: "Jtadd 1 sender",
+                    message: "Jtadd 1 sender is a boy in a poor family",
+                    type: "sender",
+                },
+                {
+                    src: Sanji,
+                    name: "Jtadd 1 recipient",
+                    message: "Jtadd 1 recipient is a boy in a rich family",
+                    type: "recipient",
+                },
+            ]
+        },
+        {
+            id: 2,
+            senderName: "Jtadd 2",
+            senderSrc: Sanji,
+            latestMessage: "Jtadd 2 sender is a boy in a poor family too",
+            messages: [
+                {
+                    src: Sanji,
+                    name: "Jtadd 2 sender",
+                    message: "Jtadd 2 sender is a boy in a poor family",
+                    type: "sender",
+                },
+                {
+                    src: Zoro,
+                    name: "Jtadd 2 recipient",
+                    message: "Jtadd 2 recipient is a boy in a rich family",
+                    type: "recipient",
+                },
+                {
+                    src: Sanji,
+                    name: "Jtadd 2 sender",
+                    message: "Jtadd 2 sender is a boy in a poor family too",
+                    type: "sender",
+                },
+            ]
         }
     ]);
 

@@ -15,7 +15,7 @@ const InboxContentHeader = () => {
                 <div className="flex items-center justify-center gap-3">
                     <Avatar />
                     <div className="name">
-                        <p className='font-bold text-black'>{inboxById.name}</p>
+                        <p className='font-bold text-black'>{inboxById.senderName}</p>
                         <span className='text-gray-400'>Active 15 minutes ago</span>
                     </div>
                 </div>

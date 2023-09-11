@@ -2,11 +2,19 @@ import React, { FC } from 'react'
 import "./index.css"
 import InboxSidebarUser from './User'
 
+export interface IInboxUser {
+    src: string,
+    name: string | React.ReactNode,
+    message: string | React.ReactNode,
+    type: "sender" | "recipient"
+}
+
 export interface IInboxSidebarUser {
     id: number | string,
-    src?: string,
-    name?: string | React.ReactNode,
-    message?: string | React.ReactNode,
+    senderName: string | React.ReactNode,
+    senderSrc: string,
+    latestMessage: string,
+    messages: IInboxUser[]
 }
 
 interface InboxSidebarUsersProps {
