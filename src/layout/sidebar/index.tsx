@@ -9,6 +9,7 @@ import Button from '../../components/interactions/button/Button'
 import { genTextColor } from '../../helpers/theme'
 import { useThemeContext } from '../../contexts/theme'
 import { Link } from 'react-router-dom'
+import Drawer from '../../components/feedback/drawer'
 
 interface MenuItem {
     icon?: React.ReactNode,
@@ -36,6 +37,7 @@ const MENU: MenuItem[] = [
 
 const LayoutSidebar = () => {
     const { theme } = useThemeContext();
+    const [open, setOpen] = useState<boolean>(false);
     const [active, setActive] = useState<number>(0);
 
     return (
@@ -48,7 +50,13 @@ const LayoutSidebar = () => {
 
                 <div className="w-[150px] mb-5 rounded-2xl flex items-center justify-center gap-3 bg-white p-3 text-gray-600 font-medium cursor-pointer">
                     Create task
-                    <Button type='circle' className='hover:scale-125 transition-all drop-shadow-lg'>
+                    <Button
+                        type='circle'
+                        className='hover:scale-125 transition-all drop-shadow-lg'
+                        onClick={() => {
+                            setOpen(true)
+                        }}
+                    >
                         <BsPlusLg className="text-white" />
                     </Button>
                 </div>
@@ -74,6 +82,14 @@ const LayoutSidebar = () => {
             </div>
 
             <ThemeSwitch />
+
+            <Drawer
+                open={open}
+                title="Drawer Title"
+                onCancel={() => setOpen(false)}
+            >
+                Drawer
+            </Drawer>
         </aside>
     )
 }

@@ -4,9 +4,9 @@ interface DividerProps extends React.HTMLProps<HTMLDivElement> {
 
 }
 
-const Divider: FC<DividerProps> = ({ className }) => {
+const Divider: FC<DividerProps> = ({ className, style }) => {
     return (
-        <hr className={`my-10 ${className}`} />
+        <hr className={`my-10 ${className}`} style={{ ...style }} />
     )
 }
 
