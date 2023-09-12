@@ -5,8 +5,8 @@ const LayoutContent = () => {
     return (
         <section
             style={{
-                width: "100vw",
-                maxWidth: "100vw",
+                width: "calc(100vw - 200px)",
+                maxWidth: "calc(100vw - 200px)",
                 height: "100vh",
                 maxHeight: "100vh",
             }}

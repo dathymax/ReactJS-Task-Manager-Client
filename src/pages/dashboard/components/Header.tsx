@@ -1,10 +1,9 @@
 import React from 'react'
 import Tabs, { TabItem } from '../../../components/navigation/tabs'
-import { CiSearch } from "react-icons/ci"
 import Avatar from '../../../components/data-display/avatar/Avatar'
 import Zoro from "../../../assets/images/zoro.jpg"
-import { useThemeContext } from '../../../contexts/theme'
 import Notification from '../../../components/feedback/notification'
+import InputSearch from '../../../components/data-entry/input/Search'
 
 const TABS_ITEMS: TabItem[] = [
     {
@@ -38,10 +37,7 @@ const DashboardHeader = () => {
                     />
                 </div>
 
-                <div className='bg-gray-200 p-3 rounded-xl flex items-center gap-2 w-[350px]'>
-                    <CiSearch className="text-xl" />
-                    <input type="text" className='outline-none bg-gray-200 w-full' placeholder='Search' />
-                </div>
+                <InputSearch width={350} />
             </div>
 
             <div className="col-span-3 flex items-center justify-between px-10">

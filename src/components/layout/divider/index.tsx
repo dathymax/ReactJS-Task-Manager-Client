@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { FC } from 'react'
 
-const Divider = () => {
+interface DividerProps extends React.HTMLProps<HTMLDivElement> {
+
+}
+
+const Divider: FC<DividerProps> = ({ className, style }) => {
     return (
-        <hr className='my-10' />
+        <hr className={`my-10 ${className}`} style={{ ...style }} />
     )
 }
 

@@ -1,0 +1,3 @@
+.inbox-chat__item:hover .inbox-chat__item--action {
+	display: flex;
+}
