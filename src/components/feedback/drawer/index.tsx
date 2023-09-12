@@ -26,7 +26,7 @@ const Drawer: FC<DrawerProps> = ({ open = false, children, title,
     }
 
     return (
-        <div className='transition-all'>
+        <>
             <div
                 className='z-30 rounded-lg fixed top-[15%] m-auto left-0 right-0 bg-white'
                 style={{ width: width, height: 400 }}
@@ -55,7 +55,7 @@ const Drawer: FC<DrawerProps> = ({ open = false, children, title,
                 }}
                 className="drawer__overlay fixed bg-gray-700 opacity-40 left-0 right-0 top-0 w-screen h-screen z-20"
             />
-        </div>
+        </>
     )
 }
 

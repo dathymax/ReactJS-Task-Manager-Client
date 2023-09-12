@@ -2,6 +2,7 @@ import React from 'react'
 import InboxSidebar from './components/sidebar/Sidebar'
 import InboxContent from './components/content'
 import InboxPageContextProvider from '../../contexts/inbox';
+import InboxPageContentMore from './components/more';
 
 const InboxPage = () => {
     return (
@@ -10,9 +11,10 @@ const InboxPage = () => {
                 <div className='col-span-2 p-5'>
                     <InboxSidebar />
                 </div>
-                <div className="col-span-10 border-l border-gray-300">
-                    <InboxContent />
-                </div>
+
+                <InboxContent />
+
+                <InboxPageContentMore />
             </div>
         </InboxPageContextProvider>
     )

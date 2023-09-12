@@ -7,7 +7,7 @@ import { useInboxPageContext } from '../../../../contexts/inbox'
 
 const InboxContentHeader = () => {
     const { theme } = useThemeContext();
-    const { inboxById } = useInboxPageContext();
+    const { inboxById, setOpenMore } = useInboxPageContext();
 
     return (
         <div className='px-4 border-b border-gray-300 h-[70px] flex items-center'>
@@ -22,7 +22,10 @@ const InboxContentHeader = () => {
                 <div className="flex items-center justify-center gap-5">
                     <BsFillTelephoneFill className={`text-[20px] cursor-pointer hover:opacity-60 ${genTextColor(theme)}`} />
                     <BsFillCameraVideoFill className={`text-[20px] cursor-pointer hover:opacity-60 ${genTextColor(theme)}`} />
-                    <BsInfoCircleFill className={`text-[20px] cursor-pointer hover:opacity-60 ${genTextColor(theme)}`} />
+                    <BsInfoCircleFill
+                        className={`text-[20px] cursor-pointer hover:opacity-60 ${genTextColor(theme)}`}
+                        onClick={() => setOpenMore(prev => !prev)}
+                    />
                 </div>
             </div>
         </div>

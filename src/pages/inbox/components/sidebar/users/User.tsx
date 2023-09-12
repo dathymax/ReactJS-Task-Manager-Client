@@ -5,7 +5,6 @@ import { IInboxSidebarUser } from './Users'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useThemeContext } from '../../../../../contexts/theme'
 import { genTextColorHover } from '../../../../../helpers/theme'
-import { useInboxPageContext } from '../../../../../contexts/inbox'
 
 interface InboxSidebarUserProps {
     item: IInboxSidebarUser
@@ -26,7 +25,7 @@ const InboxSidebarUser: FC<InboxSidebarUserProps> = ({ item }) => {
     return (
         <div
             key={item.id}
-            className={`${inboxUserId === item.id.toString() && "bg-gray-100"} inbox-user relative gap-3 flex items-center p-3 cursor-pointer hover:bg-gray-100 rounded-xl transition-all`}
+            className={`${inboxUserId === item.id.toString() && "bg-gray-100"} mb-3 inbox-user relative gap-3 flex items-center p-3 cursor-pointer hover:bg-gray-100 rounded-xl transition-all`}
             onClick={() => handleOnClick(item.id)}
         >
             <Avatar src={item.senderSrc} />
