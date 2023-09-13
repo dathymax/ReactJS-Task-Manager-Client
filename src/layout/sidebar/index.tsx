@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import { RxDashboard } from "react-icons/rx"
-import { TbBrandGoogleAnalytics } from "react-icons/tb"
-import { GoTasklist } from "react-icons/go"
 import { AiOutlineMessage } from "react-icons/ai"
 import { BsPlusLg } from "react-icons/bs"
 import ThemeSwitch from '../../components/interactions/theme'
@@ -10,6 +8,7 @@ import { genTextColor } from '../../helpers/theme'
 import { useThemeContext } from '../../contexts/theme'
 import { Link } from 'react-router-dom'
 import Drawer from '../../components/feedback/drawer'
+import AddTask from './components/AddTask'
 
 interface MenuItem {
     icon?: React.ReactNode,
@@ -51,7 +50,7 @@ const LayoutSidebar = () => {
                 <div className="w-[150px] mb-5 rounded-2xl flex items-center justify-center gap-3 bg-white p-3 text-gray-600 font-medium cursor-pointer">
                     Create task
                     <Button
-                        type='circle'
+                        typeButton='circle'
                         className='hover:scale-125 transition-all drop-shadow-lg'
                         onClick={() => {
                             setOpen(true)
@@ -88,7 +87,7 @@ const LayoutSidebar = () => {
                 title="Drawer Title"
                 onCancel={() => setOpen(false)}
             >
-                Drawer
+                <AddTask />
             </Drawer>
         </aside>
     )

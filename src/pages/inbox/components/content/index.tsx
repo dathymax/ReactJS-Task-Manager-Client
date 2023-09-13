@@ -10,8 +10,15 @@ import { genTextColor } from '../../../../helpers/theme';
 
 const InboxContent = () => {
     const { theme } = useThemeContext();
+    const { inboxById, openMore } = useInboxPageContext();
+    const bottomRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement | null>(null);
-    const { inboxById } = useInboxPageContext();
+
+    // useEffect(() => {
+    //     if (bottomRef) {
+    //         bottomRef.current?.scrollIntoView();
+    //     }
+    // }, [])
 
     useEffect(() => {
         if (inputRef.current) {
@@ -24,12 +31,10 @@ const InboxContent = () => {
     }
 
     return (
-        <div className='h-screen'>
+        <div className={`${!openMore ? "col-span-10" : "col-span-7"} relative border-l border-gray-300 h-screen`}>
             <InboxContentHeader />
 
-            <div className="p-3" style={{ height: "calc(100% - 150px)" }}>
-                <InboxContentChatBoard />
-            </div>
+            <InboxContentChatBoard />
 
             <div className='h-[45px] p-3 border border-gray-300 rounded-2xl m-[20px] flex items-center gap-3'>
                 <input ref={inputRef} type="text" placeholder='Type here...' className='outline-none w-full' />
@@ -40,6 +45,8 @@ const InboxContent = () => {
                     <BsCardImage className={`text-[18px] cursor-pointer ${genTextColor(theme)}`} />
                 </div>
             </div>
+
+            <div ref={bottomRef} className='absolute left-[50%] bottom-[10%]' />
         </div>
     )
 }
