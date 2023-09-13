@@ -8,7 +8,7 @@ const InboxSidebar = () => {
     const { inboxData } = useInboxPageContext();
 
     return (
-        <div>
+        <div className='col-span-2 p-5'>
             <h2 className='font-bold text-[25px]'>Chats</h2>
             <div className="my-4">
                 <InputSearch />

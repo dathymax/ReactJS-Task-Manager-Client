@@ -8,9 +8,7 @@ const InboxPage = () => {
     return (
         <InboxPageContextProvider>
             <div className='grid grid-cols-12 gap-3'>
-                <div className='col-span-2 p-5'>
-                    <InboxSidebar />
-                </div>
+                <InboxSidebar />
 
                 <InboxContent />
 
