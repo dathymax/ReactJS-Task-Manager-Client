@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { RxDashboard } from "react-icons/rx"
 import { AiOutlineMessage } from "react-icons/ai"
 import { BsPlusLg } from "react-icons/bs"
-import ThemeSwitch from '../../components/interactions/theme'
+import ThemeSwitch from '../../components/layout/theme'
 import Button from '../../components/interactions/button/Button'
 import { genTextColor } from '../../helpers/theme'
 import { useThemeContext } from '../../contexts/theme'
