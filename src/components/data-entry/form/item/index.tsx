@@ -15,7 +15,7 @@ const FormItem: FC<FormItemProps> = ({ label, name, children, ...rest }) => {
     return (
         <div>
             <label htmlFor={name}>{label}</label>
-            {React.cloneElement(children, { ...rest, name: name, onChange: handleInputChange })}
+            {React.cloneElement(children, { name: name, onChange: handleInputChange })}
         </div>
     )
 }
