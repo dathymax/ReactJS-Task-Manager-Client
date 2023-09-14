@@ -17,7 +17,7 @@ const InboxContentChatItem = () => {
         messages.map(item => {
             return (
                 <div className={`inbox-chat__item w-full flex items-center gap-3 mb-5 ${item.type === "sender" ? "" : "flex-row-reverse text-right"}`}>
-                    <Avatar src={item.src} />
+                    {item.type === "sender" && <Avatar src={item.src} />}
                     <div className='bg-gray-200 rounded-2xl px-3 py-1.5'>
                         {item.message}
                     </div>

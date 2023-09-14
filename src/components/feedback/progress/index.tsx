@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 import { useThemeContext } from '../../../contexts/theme'
 import { genBgColor, genBgColorLighter, genTextColor } from '../../../helpers/theme';
-import { genWidthPercent } from '../../../helpers/width';
 
 interface ProgressProps {
     progress: number,
